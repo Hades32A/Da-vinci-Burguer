@@ -1,0 +1,140 @@
+{
+  "featured": [
+    "hamburguesa-doble-san-juan-bautista",
+    "perro-sencillo-la-anunciacion",
+    "hamburguesa-especial",
+    "salchipapa"
+  ],
+  "products": [
+    {
+      "id": "hamburguesa-sencilla",
+      "name": "Hamburguesa sencilla",
+      "category": "hamburguesas",
+      "ingredients": "Carne jugosa, pan suave, lechuga, tomate y salsas clásicas.",
+      "price": 3.5,
+      "calories": "420 cal",
+      "badge": null,
+      "image": "assets/food-stickers/hamburguesa-sencilla-sticker.svg"
+    },
+    {
+      "id": "hamburguesa-mini-especial",
+      "name": "Hamburguesas mini especial",
+      "category": "hamburguesas",
+      "ingredients": "Mini burgers con queso, tocineta y salsa especial Da'Vinci.",
+      "price": 5.5,
+      "calories": "480 cal",
+      "badge": "NEW",
+      "image": "assets/food-stickers/hamburguesa-mini-especial-sticker.svg"
+    },
+    {
+      "id": "hamburguesa-especial",
+      "name": "Hamburguesas Especial",
+      "category": "hamburguesas",
+      "ingredients": "Carne, queso, tocineta, huevo, vegetales frescos y salsa de la casa.",
+      "price": 6.5,
+      "calories": "620 cal",
+      "badge": "BEST SELLER",
+      "image": "assets/food-stickers/hamburguesa-especial-sticker.svg"
+    },
+    {
+      "id": "hamburguesa-doble-san-juan-bautista",
+      "name": "Hamburguesas Doble (San Juan Bautista)",
+      "category": "hamburguesas",
+      "ingredients": "Doble carne, doble queso, tocineta crocante y salsa Vault-Tec.",
+      "price": 8.0,
+      "calories": "780 cal",
+      "badge": "LEGENDARY",
+      "image": "assets/food-stickers/hamburguesa-doble-san-juan-bautista-sticker.svg"
+    },
+    {
+      "id": "perro-sencillo",
+      "name": "Perro sencillo",
+      "category": "perros",
+      "ingredients": "Salchicha, pan suave, papas paja y salsas al gusto.",
+      "price": 2.5,
+      "calories": "320 cal",
+      "badge": null,
+      "image": "assets/food-stickers/perro-sencillo-sticker.svg"
+    },
+    {
+      "id": "perro-sencillo-la-anunciacion",
+      "name": "Perro sencillo (La Anunciación)",
+      "category": "perros",
+      "ingredients": "Salchicha, queso, papas paja y el toque clásico de La Anunciación.",
+      "price": 3.0,
+      "calories": "360 cal",
+      "badge": "BEST SELLER",
+      "image": "assets/food-stickers/perro-sencillo-la-anunciacion-sticker.svg"
+    },
+    {
+      "id": "perro-con-papas-n",
+      "name": "Perro con Papas N",
+      "category": "perros",
+      "ingredients": "Salchicha, queso fundido, papas N crujientes y salsas.",
+      "price": 3.5,
+      "calories": "410 cal",
+      "badge": null,
+      "image": "assets/food-stickers/perro-con-papas-n-sticker.svg"
+    },
+    {
+      "id": "perro-especial",
+      "name": "Perro Especial",
+      "category": "perros",
+      "ingredients": "Salchicha, queso, tocineta, vegetales y salsa especial.",
+      "price": 4.0,
+      "calories": "450 cal",
+      "badge": "NEW",
+      "image": "assets/food-stickers/perro-especial-sticker.svg"
+    },
+    {
+      "id": "perro-con-papas-n-alimex",
+      "name": "Perro con Papas N (Alimex)",
+      "category": "perros",
+      "ingredients": "Salchicha Alimex, queso, papas N y salsas al gusto.",
+      "price": 4.5,
+      "calories": "480 cal",
+      "badge": null,
+      "image": "assets/food-stickers/perro-con-papas-n-alimex-sticker.svg"
+    },
+    {
+      "id": "perro-especial-alimex",
+      "name": "Perro Especial (Alimex)",
+      "category": "perros",
+      "ingredients": "Salchicha Alimex, queso, tocineta, vegetales y salsa especial.",
+      "price": 5.0,
+      "calories": "520 cal",
+      "badge": "LEGENDARY",
+      "image": "assets/food-stickers/perro-especial-alimex-sticker.svg"
+    },
+    {
+      "id": "racion-de-papas",
+      "name": "Ración de papas",
+      "category": "salchipapas",
+      "ingredients": "Papas fritas doradas y crujientes, listas para compartir.",
+      "price": 2.0,
+      "calories": "380 cal",
+      "badge": null,
+      "image": "assets/food-stickers/racion-de-papas-sticker.svg"
+    },
+    {
+      "id": "salchipapa",
+      "name": "Salchipapa",
+      "category": "salchipapas",
+      "ingredients": "Papas fritas con salchicha en rodajas y salsas.",
+      "price": 3.5,
+      "calories": "560 cal",
+      "badge": "BEST SELLER",
+      "image": "assets/food-stickers/salchipapa-sticker.svg"
+    },
+    {
+      "id": "salchipapa-con-pollo",
+      "name": "Salchipapa con pollo",
+      "category": "salchipapas",
+      "ingredients": "Papas fritas, salchicha y pollo desmechado con salsas.",
+      "price": 4.5,
+      "calories": "640 cal",
+      "badge": "NEW",
+      "image": "assets/food-stickers/salchipapa-con-pollo-sticker.svg"
+    }
+  ]
+}

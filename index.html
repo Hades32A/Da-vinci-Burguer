@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Da'Vinci Burger — hamburguesas, perros y salchipapas con estilo Vault-Tec. Pedí por WhatsApp."
+    />
+    <title>Da'Vinci Burger | Vault Kitchen</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Outfit:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              mustard: "#F5C518",
+              cream: "#FDF6E2",
+              vault: "#F59E0B",
+              stone: {
+                800: "#292524",
+              },
+            },
+            fontFamily: {
+              display: ['"Lilita One"', "system-ui", "sans-serif"],
+              body: ['"Outfit"', '"Quicksand"', "system-ui", "sans-serif"],
+            },
+            boxShadow: {
+              comic: "4px 4px 0px 0px #292524",
+              "comic-sm": "2px 2px 0px 0px #292524",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="font-body text-stone-800">
+    <!-- Header -->
+    <header class="site-header">
+      <nav class="nav-bar" aria-label="Navegación principal">
+        <a href="#top" class="brand">
+          <span class="brand-mark">
+            <img
+              src="assets/logo.svg"
+              alt="Da'Vinci Burger"
+              width="40"
+              height="40"
+            />
+          </span>
+          <span class="brand-text">
+            <strong>Da'Vinci Burger</strong>
+            <span>Works Vault</span>
+          </span>
+        </a>
+
+        <div class="nav-links" aria-label="Enlaces desktop">
+          <a href="#hero">Destacados</a>
+          <a href="#menu">Menú</a>
+          <a href="#vault">Vault</a>
+        </div>
+
+        <button
+          type="button"
+          class="nav-toggle comic-press"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-drawer"
+          aria-label="Abrir menú"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
+
+      <div class="nav-drawer" id="nav-drawer" hidden>
+        <a href="#hero" data-nav-link>Destacados</a>
+        <a href="#menu" data-nav-link>Menú Interactivo</a>
+        <a href="#vault" data-nav-link>Sobre el Vault</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero + Swiper -->
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <span class="hero-kicker">Nuclear Bites Protocol</span>
+          <h1 class="hero-title" id="hero-title">Da'Vinci Burger</h1>
+          <p class="hero-sub">
+            Sabor legendario del Vault. Smash burgers, perros y salchipapas con
+            vibra Fallout — ordená en segundos.
+          </p>
+
+          <div class="swiper hero-swiper" id="hero-swiper">
+            <div class="swiper-wrapper" id="hero-slides">
+              <!-- Slides inyectados por JS -->
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev" aria-label="Anterior"></div>
+            <div class="swiper-button-next" aria-label="Siguiente"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu -->
+      <section class="section page-wrap" id="menu" aria-labelledby="menu-title">
+        <div class="section-head">
+          <h2 id="menu-title">Menú Interactivo</h2>
+          <p>
+            Elegí categoría, sumá al carrito y confirmá tu pedido por WhatsApp.
+          </p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Categorías del menú">
+          <button
+            type="button"
+            class="tab-btn is-active"
+            role="tab"
+            aria-selected="true"
+            data-category="all"
+          >
+            <i class="fa-solid fa-border-all" aria-hidden="true"></i>
+            Todo
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            role="tab"
+            aria-selected="false"
+            data-category="hamburguesas"
+          >
+            <i class="fa-solid fa-burger" aria-hidden="true"></i>
+            Hamburguesas
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            role="tab"
+            aria-selected="false"
+            data-category="perros"
+          >
+            <i class="fa-solid fa-hotdog" aria-hidden="true"></i>
+            Perros Calientes
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            role="tab"
+            aria-selected="false"
+            data-category="salchipapas"
+          >
+            <i class="fa-solid fa-fire" aria-hidden="true"></i>
+            Salchipapas
+          </button>
+        </div>
+
+        <div
+          class="menu-grid"
+          id="menu-grid"
+          role="tabpanel"
+          aria-live="polite"
+        >
+          <div class="menu-status">Cargando menú del Vault…</div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="page-wrap" id="vault" aria-labelledby="vault-title">
+        <div class="vault-strip">
+          <h2 id="vault-title">Protocolo Vault-Tec</h2>
+          <p>
+            Bienvenido al refugio gastronómico. Cada plato es una pegatina
+            radiante lista para el carrito. Pedidos reales por WhatsApp —
+            sin apps, sin drama, solo sabor nuclear.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <strong>Da'Vinci Burger</strong> · Estilo Nuclear Bites · Hecho para
+        móviles primero
+      </p>
+    </footer>
+
+    <!-- Floating cart bar -->
+    <button
+      type="button"
+      class="cart-bar is-hidden"
+      id="cart-bar"
+      aria-label="Ver carrito"
+    >
+      <span class="cart-bar__left">
+        <span class="cart-bar__count" id="cart-count">0</span>
+        <span>VIEW CART</span>
+      </span>
+      <span class="cart-bar__total" id="cart-bar-total">$0.00</span>
+    </button>
+
+    <!-- Overlay + Drawer -->
+    <div class="drawer-overlay" id="drawer-overlay" hidden></div>
+
+    <aside
+      class="cart-drawer"
+      id="cart-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="drawer-title"
+      aria-hidden="true"
+    >
+      <div class="drawer-handle" aria-hidden="true"></div>
+      <div class="drawer-header">
+        <h2 id="drawer-title">Tu Pedido</h2>
+        <button
+          type="button"
+          class="drawer-close"
+          id="drawer-close"
+          aria-label="Cerrar carrito"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="drawer-body">
+        <div id="cart-items-wrap">
+          <p class="cart-empty" id="cart-empty">
+            El carrito está vacío. Sumá algo delicioso del menú.
+          </p>
+          <div class="cart-items" id="cart-items"></div>
+        </div>
+
+        <div class="cart-summary">
+          <span>TOTAL</span>
+          <span id="cart-drawer-total">$0.00</span>
+        </div>
+
+        <form class="order-form" id="order-form" novalidate>
+          <div class="field">
+            <label for="customer-name">Nombre del cliente</label>
+            <input
+              type="text"
+              id="customer-name"
+              name="customerName"
+              placeholder="Ej: Leonardo"
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="field">
+            <label>Tipo de entrega</label>
+            <div class="choice-row" role="group" aria-label="Tipo de entrega">
+              <button
+                type="button"
+                class="choice-btn is-selected"
+                data-choice-group="delivery"
+                data-value="Delivery"
+              >
+                <i class="fa-solid fa-motorcycle" aria-hidden="true"></i>
+                Delivery
+              </button>
+              <button
+                type="button"
+                class="choice-btn"
+                data-choice-group="delivery"
+                data-value="Pick-up"
+              >
+                <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Pick-up
+              </button>
+            </div>
+            <input type="hidden" name="deliveryMethod" id="delivery-method" value="Delivery" />
+          </div>
+
+          <div class="field" id="address-field">
+            <label for="customer-address">Dirección / ubicación</label>
+            <textarea
+              id="customer-address"
+              name="address"
+              placeholder="Calle, referencia o “te paso ubicación por WhatsApp”"
+              required
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label>Método de pago</label>
+            <div class="choice-row" role="group" aria-label="Método de pago">
+              <button
+                type="button"
+                class="choice-btn is-selected"
+                data-choice-group="payment"
+                data-value="Pago Móvil"
+              >
+                <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>
+                Pago Móvil
+              </button>
+              <button
+                type="button"
+                class="choice-btn"
+                data-choice-group="payment"
+                data-value="Efectivo"
+              >
+                <i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i>
+                Efectivo
+              </button>
+            </div>
+            <input type="hidden" name="paymentMethod" id="payment-method" value="Pago Móvil" />
+          </div>
+
+          <p class="form-hint">
+            Al confirmar se abrirá WhatsApp con tu pedido listo para enviar.
+          </p>
+
+          <button type="submit" class="submit-order" id="submit-order">
+            CONFIRMAR Y ENVIAR AL WHATSAPP
+          </button>
+        </form>
+      </div>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/swiper-init.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
