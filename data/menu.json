@@ -41,7 +41,7 @@
       "name": "Hamburguesas Doble (San Juan Bautista)",
       "category": "hamburguesas",
       "ingredients": "Doble carne, doble queso, doble maiz, extra papas, tocineta crocante y salsa especial Da'Vinci.",
-      "price": 4,
+      "price": 4.5,
       "calories": "780 cal",
       "badge": "LEGENDARY",
       "image": "assets/food-stickers/hamburdoble.png"
@@ -61,7 +61,7 @@
       "name": "Perro especial (La Anunciación)",
       "category": "perros",
       "ingredients": "Salchicha, queso, papas naturales, salchicha alimex y el toque clásico de La Anunciación.",
-      "price": 2,
+      "price": 2.5,
       "calories": "360 cal",
       "badge": "BEST SELLER",
       "image": "assets/food-stickers/perroalimex.png"
