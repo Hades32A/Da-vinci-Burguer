@@ -584,33 +584,28 @@ img.food-sticker {
   min-height: 100%;
 }
 
-.product-badge {
-  position: absolute;
-  top: -0.35rem;
-  left: -0.25rem;
-  z-index: 2;
-  padding: 0.2rem 0.45rem;
-  border: 3px solid var(--stone);
-  border-radius: 0.55rem;
-  font-family: var(--font-display);
-  font-size: 0.62rem;
-  letter-spacing: 0.04em;
-  color: #fff;
-  box-shadow: 2px 2px 0 0 var(--stone);
-  transform: rotate(-6deg);
+.product-card__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.15rem;
+  padding: 0.15rem 0.1rem 0.35rem;
+  border-bottom: 3px solid rgba(41, 37, 36, 0.12);
 }
 
-.product-badge--best {
-  background: var(--orange);
+.product-card__price {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 4.2vw, 1.35rem);
+  line-height: 1;
   color: var(--stone);
 }
 
-.product-badge--new {
-  background: var(--green-badge);
-}
-
-.product-badge--legendary {
-  background: var(--purple-badge);
+.product-card__cal {
+  font-size: 0.72rem;
+  font-weight: 700;
+  opacity: 0.75;
+  white-space: nowrap;
 }
 
 .product-card__media {
@@ -650,42 +645,21 @@ img.food-sticker {
 
 .product-card__footer {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 0.4rem;
-  margin-top: auto;
-}
-
-.product-card__meta {
-  display: grid;
-  gap: 0.15rem;
-  min-width: 0;
-}
-
-.product-card__price {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-}
-
-.product-card__cal {
-  font-size: 0.68rem;
-  font-weight: 700;
-  opacity: 0.7;
-}
-
-.product-card__actions {
-  display: flex;
   align-items: center;
-  gap: 0.35rem;
-  flex-shrink: 0;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.15rem;
 }
 
 .preview-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  max-width: 5.8rem;
-  padding: 0.3rem 0.4rem;
+  gap: 0.3rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: calc(100% - 3rem);
+  padding: 0.4rem 0.45rem;
   background: var(--mustard);
   border: 3px solid var(--stone);
   border-radius: 0.7rem;
@@ -719,7 +693,7 @@ img.food-sticker {
 
 .preview-toggle__label {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

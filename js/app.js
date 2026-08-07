@@ -56,15 +56,6 @@
     return "$" + Number(value).toFixed(2);
   }
 
-  function badgeClass(badge) {
-    if (!badge) return "";
-    const key = String(badge).toUpperCase();
-    if (key === "BEST SELLER") return "product-badge--best";
-    if (key === "NEW") return "product-badge--new";
-    if (key === "LEGENDARY") return "product-badge--legendary";
-    return "product-badge--best";
-  }
-
   function getProduct(id) {
     return products.find((p) => p.id === id);
   }
@@ -120,13 +111,6 @@
       .map(function (p, index) {
         const delay = "floating-delay-" + ((index % 3) + 1);
         const photoSrc = productPhoto(p);
-        const badgeHtml = p.badge
-          ? '<span class="product-badge ' +
-            badgeClass(p.badge) +
-            '">' +
-            escapeHtml(p.badge) +
-            "</span>"
-          : "";
 
         return (
           '<article class="product-card" data-id="' +
@@ -134,7 +118,14 @@
           '" data-category="' +
           escapeAttr(p.category) +
           '">' +
-          badgeHtml +
+          '<div class="product-card__top">' +
+          '<span class="product-card__price">' +
+          money(p.price) +
+          "</span>" +
+          '<span class="product-card__cal">' +
+          escapeHtml(p.calories) +
+          "</span>" +
+          "</div>" +
           '<div class="product-card__media">' +
           '<img class="floating ' +
           delay +
@@ -151,15 +142,6 @@
           escapeHtml(p.ingredients) +
           "</p>" +
           '<div class="product-card__footer">' +
-          '<div class="product-card__meta">' +
-          '<span class="product-card__price">' +
-          money(p.price) +
-          "</span>" +
-          '<span class="product-card__cal">' +
-          escapeHtml(p.calories) +
-          "</span>" +
-          "</div>" +
-          '<div class="product-card__actions">' +
           '<button type="button" class="preview-toggle" data-preview-toggle aria-expanded="false" aria-controls="preview-' +
           escapeAttr(p.id) +
           '">' +
@@ -173,7 +155,6 @@
           ' al carrito">' +
           '<i class="fa-solid fa-plus" aria-hidden="true"></i>' +
           "</button>" +
-          "</div>" +
           "</div>" +
           '<div class="product-preview" id="preview-' +
           escapeAttr(p.id) +
