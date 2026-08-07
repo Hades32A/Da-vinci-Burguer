@@ -16,6 +16,7 @@
   --radius-comic: 1.25rem;
   --font-display: "Lilita One", system-ui, sans-serif;
   --font-body: "Outfit", "Quicksand", system-ui, sans-serif;
+  --header-offset: 5.75rem;
 }
 
 *,
@@ -26,6 +27,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-offset);
 }
 
 body {
@@ -46,6 +48,16 @@ body {
     );
   overflow-x: hidden;
   padding-bottom: 6.5rem;
+}
+
+main {
+  padding-top: 0.25rem;
+}
+
+#hero,
+#menu,
+#vault {
+  scroll-margin-top: var(--header-offset);
 }
 
 h1,
@@ -190,7 +202,7 @@ img.food-sticker {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 1000;
   padding: 0.85rem 1rem 0.5rem;
 }
 
@@ -464,6 +476,29 @@ img.food-sticker {
 /* ——— Section common ——— */
 .section {
   padding: 0.5rem 0 1.75rem;
+}
+
+/* Evita que el header sticky tape las tarjetas del menú en móvil */
+@media (max-width: 767px) {
+  :root {
+    --header-offset: 6.25rem;
+  }
+
+  main {
+    /* Espacio de seguridad bajo el header flotante */
+    padding-top: 0.5rem;
+  }
+
+  #menu.section,
+  #menu {
+    /* Empuja título/tabs/tarjetas por debajo del header al hacer scroll */
+    padding-top: 1.35rem;
+    scroll-margin-top: var(--header-offset);
+  }
+
+  .menu-grid {
+    scroll-margin-top: var(--header-offset);
+  }
 }
 
 .section-head {
