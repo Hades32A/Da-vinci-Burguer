@@ -14,7 +14,8 @@
       "price": 1.5,
       "calories": "420 cal",
       "badge": null,
-      "image": "assets/food-stickers/hambursencilla.png"
+      "image": "assets/food-stickers/hambursencilla.png",
+      "photo": "assets/food-photos/hamburguesa-sencilla.png"
     },
     {
       "id": "hamburguesa-mini-especial",
@@ -24,7 +25,8 @@
       "price": 2,
       "calories": "480 cal",
       "badge": "NEW",
-      "image": "assets/food-stickers/hamburmini.png"
+      "image": "assets/food-stickers/hamburmini.png",
+      "photo": "assets/food-photos/hamburguesa-mini-especial.png"
     },
     {
       "id": "hamburguesa-especial",
@@ -34,7 +36,8 @@
       "price": 3,
       "calories": "620 cal",
       "badge": "BEST SELLER",
-      "image": "assets/food-stickers/hamburespecial.png"
+      "image": "assets/food-stickers/hamburespecial.png",
+      "photo": "assets/food-photos/hamburguesa-especial.png"
     },
     {
       "id": "hamburguesa-doble-san-juan-bautista",
@@ -44,7 +47,8 @@
       "price": 4.5,
       "calories": "780 cal",
       "badge": "LEGENDARY",
-      "image": "assets/food-stickers/hamburdoble.png"
+      "image": "assets/food-stickers/hamburdoble.png",
+      "photo": "assets/food-photos/hamburguesa-doble-san-juan-bautista.png"
     },
     {
       "id": "perro-sencillo",
@@ -54,7 +58,8 @@
       "price": 1,
       "calories": "320 cal",
       "badge": null,
-      "image": "assets/food-stickers/perrosencilloc.png"
+      "image": "assets/food-stickers/perrosencilloc.png",
+      "photo": "assets/food-photos/perro-sencillo.png"
     },
     {
       "id": "perro-sencillo-la-anunciacion",
@@ -64,7 +69,8 @@
       "price": 2.5,
       "calories": "360 cal",
       "badge": "BEST SELLER",
-      "image": "assets/food-stickers/perroalimex.png"
+      "image": "assets/food-stickers/perroalimex.png",
+      "photo": "assets/food-photos/perro-sencillo-la-anunciacion.png"
     },
     {
       "id": "perro-con-papas-n",
@@ -74,7 +80,8 @@
       "price": 1.5,
       "calories": "410 cal",
       "badge": null,
-      "image": "assets/food-stickers/perroconpapas.png"
+      "image": "assets/food-stickers/perroconpapas.png",
+      "photo": "assets/food-photos/perro-con-papas-n.png"
     },
     {
       "id": "racion-de-papas",
@@ -84,7 +91,8 @@
       "price": 2.0,
       "calories": "380 cal",
       "badge": null,
-      "image": "assets/food-stickers/racionpapas.png"
+      "image": "assets/food-stickers/racionpapas.png",
+      "photo": "assets/food-photos/racion-de-papas.png"
     },
     {
       "id": "salchipapa",
@@ -94,7 +102,8 @@
       "price": 3,
       "calories": "560 cal",
       "badge": "BEST SELLER",
-      "image": "assets/food-stickers/salchipapa.png"
+      "image": "assets/food-stickers/salchipapa.png",
+      "photo": "assets/food-photos/salchipapa.png"
     },
     {
       "id": "salchipapa-con-pollo",
@@ -104,7 +113,8 @@
       "price": 4,
       "calories": "640 cal",
       "badge": "NEW",
-      "image": "assets/food-stickers/salchipapapollo.png"
+      "image": "assets/food-stickers/salchipapapollo.png",
+      "photo": "assets/food-photos/salchipapa-con-pollo.png"
     }
   ]
 }

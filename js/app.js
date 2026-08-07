@@ -45,6 +45,11 @@
     navToggle: document.getElementById("nav-toggle"),
     navDrawer: document.getElementById("nav-drawer"),
     toast: document.getElementById("toast"),
+    lightbox: document.getElementById("photo-lightbox"),
+    lightboxOverlay: document.getElementById("photo-lightbox-overlay"),
+    lightboxImg: document.getElementById("photo-lightbox-img"),
+    lightboxCaption: document.getElementById("photo-lightbox-caption"),
+    lightboxClose: document.getElementById("photo-lightbox-close"),
   };
 
   function money(value) {
@@ -97,6 +102,10 @@
     return products.filter((p) => p.category === activeCategory);
   }
 
+  function productPhoto(p) {
+    return p.photo || p.image;
+  }
+
   function renderMenu() {
     if (!els.menuGrid) return;
     const list = filteredProducts();
@@ -110,6 +119,7 @@
     els.menuGrid.innerHTML = list
       .map(function (p, index) {
         const delay = "floating-delay-" + ((index % 3) + 1);
+        const photoSrc = productPhoto(p);
         const badgeHtml = p.badge
           ? '<span class="product-badge ' +
             badgeClass(p.badge) +
@@ -149,12 +159,40 @@
           escapeHtml(p.calories) +
           "</span>" +
           "</div>" +
+          '<div class="product-card__actions">' +
+          '<button type="button" class="preview-toggle" data-preview-toggle aria-expanded="false" aria-controls="preview-' +
+          escapeAttr(p.id) +
+          '">' +
+          '<i class="fa-solid fa-chevron-down preview-toggle__icon" aria-hidden="true"></i>' +
+          '<span class="preview-toggle__label">(toque para visualizar el producto)</span>' +
+          "</button>" +
           '<button type="button" class="add-btn" data-add="' +
           escapeAttr(p.id) +
           '" aria-label="Agregar ' +
           escapeAttr(p.name) +
           ' al carrito">' +
           '<i class="fa-solid fa-plus" aria-hidden="true"></i>' +
+          "</button>" +
+          "</div>" +
+          "</div>" +
+          '<div class="product-preview" id="preview-' +
+          escapeAttr(p.id) +
+          '">' +
+          '<button type="button" class="product-preview__shot" data-lightbox="' +
+          escapeAttr(photoSrc) +
+          '" data-lightbox-alt="' +
+          escapeAttr(p.name) +
+          '" aria-label="Ampliar foto de ' +
+          escapeAttr(p.name) +
+          '">' +
+          '<img src="' +
+          escapeAttr(photoSrc) +
+          '" alt="Foto real de ' +
+          escapeAttr(p.name) +
+          '" loading="lazy" data-fallback="' +
+          escapeAttr(p.image) +
+          '" />' +
+          '<span class="product-preview__hint"><i class="fa-solid fa-expand" aria-hidden="true"></i> Toca para ampliar</span>' +
           "</button>" +
           "</div>" +
           "</article>"
@@ -442,13 +480,55 @@
     if (els.menuGrid) {
       els.menuGrid.addEventListener("click", function (e) {
         const addBtn = e.target.closest("[data-add]");
-        if (!addBtn) return;
-        const id = addBtn.getAttribute("data-add");
-        if (!id) return;
-        addToCart(id, 1);
-        const product = getProduct(id);
-        showToast((product ? product.name : "Producto") + " agregado");
+        if (addBtn) {
+          const id = addBtn.getAttribute("data-add");
+          if (!id) return;
+          addToCart(id, 1);
+          const product = getProduct(id);
+          showToast((product ? product.name : "Producto") + " agregado");
+          return;
+        }
+
+        const toggleBtn = e.target.closest("[data-preview-toggle]");
+        if (toggleBtn) {
+          const card = toggleBtn.closest(".product-card");
+          if (!card) return;
+          const willOpen = !card.classList.contains("is-preview-open");
+          card.classList.toggle("is-preview-open", willOpen);
+          toggleBtn.setAttribute("aria-expanded", willOpen ? "true" : "false");
+          return;
+        }
+
+        const lightboxBtn = e.target.closest("[data-lightbox]");
+        if (lightboxBtn) {
+          openLightbox(
+            lightboxBtn.getAttribute("data-lightbox"),
+            lightboxBtn.getAttribute("data-lightbox-alt") || ""
+          );
+        }
       });
+
+      els.menuGrid.addEventListener(
+        "error",
+        function (e) {
+          const img = e.target;
+          if (!(img instanceof HTMLImageElement)) return;
+          if (!img.closest(".product-preview")) return;
+          const fallback = img.getAttribute("data-fallback");
+          if (!fallback || img.src.indexOf(fallback) !== -1) return;
+          img.src = fallback;
+          const shot = img.closest("[data-lightbox]");
+          if (shot) shot.setAttribute("data-lightbox", fallback);
+        },
+        true
+      );
+    }
+
+    if (els.lightboxClose) {
+      els.lightboxClose.addEventListener("click", closeLightbox);
+    }
+    if (els.lightboxOverlay) {
+      els.lightboxOverlay.addEventListener("click", closeLightbox);
     }
 
     if (els.heroSlides) {
@@ -537,8 +617,44 @@
     }
 
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeDrawer();
+      if (e.key === "Escape") {
+        if (els.lightbox && els.lightbox.classList.contains("is-open")) {
+          closeLightbox();
+          return;
+        }
+        closeDrawer();
+      }
     });
+  }
+
+  function openLightbox(src, alt) {
+    if (!els.lightbox || !els.lightboxImg || !src) return;
+    els.lightboxImg.src = src;
+    els.lightboxImg.alt = alt || "Foto del producto";
+    if (els.lightboxCaption) {
+      els.lightboxCaption.textContent = alt || "";
+    }
+    els.lightbox.hidden = false;
+    requestAnimationFrame(function () {
+      els.lightbox.classList.add("is-open");
+    });
+    els.lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+  }
+
+  function closeLightbox() {
+    if (!els.lightbox) return;
+    els.lightbox.classList.remove("is-open");
+    els.lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
+    setTimeout(function () {
+      if (!els.lightbox.classList.contains("is-open")) {
+        els.lightbox.hidden = true;
+        if (els.lightboxImg) {
+          els.lightboxImg.removeAttribute("src");
+        }
+      }
+    }, 220);
   }
 
   /* ——— Boot ——— */
